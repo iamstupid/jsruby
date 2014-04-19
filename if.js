@@ -3,15 +3,25 @@
  * enabling ruby-style programming in JavaScript
  * */
 (function() {
-	window.rb=rb||{};
+	window.rb={};
+	function c(e){
+		if(typeof e==="function"){
+			return e();
+		}else{
+			return eval(e);
+		}
+	}
 	function valur(n){
 		var a=function(){
 			return n;
 		};
-		a.elsif=a.else=function(){};
+		a.elsif=a.else=function(){
+			return this;
+		};
 		a.valueOf=function(){
 			return n.valueOf();
 		};
+		a.end=n;
 		return a;
 	}
 	function choiser(){
@@ -19,11 +29,11 @@
 			return rb.if(bool);
 		};
 		this.else=function(fn){
-			return fn();
-		}
+			return new valur(c(fn));
+		};
 	}
 	function ifer(fn){
-		return valur(fn());
+		return valur(c(fn));
 	}
 	function elser(fn){
 		return new choiser();
@@ -34,5 +44,5 @@
 		}else{
 			return elser;
 		}
-	}
+	};
 })();
