@@ -12,3 +12,4 @@ Hope you have fun.
 components
 ----------
 + [`if.js`](https://github.com/iamstupid/jsruby/wiki/if "documentation of if")
++ [`object.js`](https://github.com/iamstupid/jsruby/wiki/object "documentation of object")
