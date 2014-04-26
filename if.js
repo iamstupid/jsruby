@@ -1,9 +1,5 @@
-/**
- * RUBY.js
- * enabling ruby-style programming in JavaScript
- * */
 (function() {
-	window.rb={};
+	window.rb=rb||{};
 	function c(e){
 		if(typeof e==="function"){
 			return e();
